@@ -1,22 +1,8 @@
-[
-  {
-    "ParameterKey": "PasswordLength",
-    "ParameterValue": "16"
-  },
-  {
-    "ParameterKey": "S3GroupName",
-    "ParameterValue": "S3ReadOnlyGroup"
-  },
-  {
-    "ParameterKey": "EC2GroupName",
-    "ParameterValue": "EC2ReadOnlyGroup"
-  },
-  {
-    "ParameterKey": "S3UserName",
-    "ParameterValue": "s3-user"
-  },
-  {
-    "ParameterKey": "EC2UserName",
-    "ParameterValue": "ec2-user"
-  }
-]
+template-file-path: infrastructure.yaml
+parameters:
+  S3UserName: clouds3
+  EC2UserName: cloud-compute
+  PasswordLength: '16'
+  S3GroupName: S3ReadOnlyGroup
+  EC2GroupName: EC2ReadOnlyGroup
+tags: {}
