@@ -1,7 +1,7 @@
 template-file-path: infrastructure.yaml
 parameters:
-  S3UserName: s3-userone
-  EC2UserName: ec2-userone
+  S3UserName: s3-user-kaytee
+  EC2UserName: ec2-user-kaytee
   PasswordLength: '16'
   S3GroupName: S3ReadOnlyGroup
   EC2GroupName: EC2ReadOnlyGroup
