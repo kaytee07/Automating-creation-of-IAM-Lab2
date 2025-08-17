@@ -34,7 +34,7 @@ Parameters:
 Resources:
 
   # -------------------------------
-  # 1. One-Time Password (Secrets Manager)
+  # 1.. One-Time Password (Secrets Manager)
   # -------------------------------
   OneTimePasswordSecret:
     Type: AWS::SecretsManager::Secret
