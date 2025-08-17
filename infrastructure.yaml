@@ -67,10 +67,18 @@ Resources:
             Statement:
               - Effect: Allow
                 Action: iam:ChangePassword
-                # Use mapping form of !Sub so ${aws:username} is passed through literally for IAM to resolve
                 Resource: !Sub
                   - arn:aws:iam::${AWS::AccountId}:user/${username}
                   - { username: '${aws:username}' }
+        - PolicyName: ExtraS3ReadPermissions
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:ListAllMyBuckets
+                  - s3:GetBucketLocation
+                Resource: "*"
 
   EC2ReadOnlyGroup:
     Type: AWS::IAM::Group
@@ -88,6 +96,16 @@ Resources:
                 Resource: !Sub
                   - arn:aws:iam::${AWS::AccountId}:user/${username}
                   - { username: '${aws:username}' }
+        - PolicyName: ExtraEC2ReadPermissions
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ec2:DescribeInstances
+                  - ec2:DescribeRegions
+                  - ec2:DescribeAvailabilityZones
+                Resource: "*"
 
   # -------------------------------
   # 3) IAM Users with console access, using the shared OTP, forced reset
