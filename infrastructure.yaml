@@ -1,3 +1,7 @@
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups: []
+
 AWSTemplateFormatVersion: "2010-09-09"
 Description: >
   CloudFormation template to create IAM groups and users with console access.
