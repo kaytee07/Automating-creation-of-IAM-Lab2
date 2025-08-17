@@ -56,6 +56,14 @@ Resources:
       GroupName: !Ref S3GroupName
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+      Policies:
+        - PolicyName: AllowChangeOwnPassword
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: iam:ChangePassword
+                Resource: !Sub "arn:aws:iam::${AWS::AccountId}:user/\${aws:username}"
 
   EC2ReadOnlyGroup:
     Type: AWS::IAM::Group
@@ -63,6 +71,15 @@ Resources:
       GroupName: !Ref EC2GroupName
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
+      Policies:
+        - PolicyName: AllowChangeOwnPassword
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: iam:ChangePassword
+                Resource: !Sub "arn:aws:iam::${AWS::AccountId}:user/\${aws:username}"
+
 
   # -------------------------------
   # 3. IAM Users
