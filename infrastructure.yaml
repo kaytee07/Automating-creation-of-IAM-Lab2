@@ -102,6 +102,6 @@ Outputs:
 
   OneTimePasswordSecretARN:
     Description: ARN of the one-time password stored in Secrets Manager
-    Value: !Ref OneTimePasswordSecret1
+    Value: !Ref OneTimePasswordSecret
     Export:
       Name: !Sub "${AWS::StackName}-PasswordSecret"
