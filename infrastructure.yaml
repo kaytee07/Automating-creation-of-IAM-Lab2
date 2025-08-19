@@ -136,8 +136,6 @@ Resources:
     Type: AWS::IAM::User
     Properties:
       UserName: kofitaylor
-      Groups:
-        - !Ref EC2ReadOnlyGroup
       LoginProfile:
         Password: !Sub "{{resolve:secretsmanager:${OneTimePasswordSecret}::password}}"
         PasswordResetRequired: true
